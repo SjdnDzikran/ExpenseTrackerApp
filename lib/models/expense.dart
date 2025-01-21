@@ -18,4 +18,3 @@ class Expense {
     required this.category,
   }) : id = uuid.v4();
 }
-
