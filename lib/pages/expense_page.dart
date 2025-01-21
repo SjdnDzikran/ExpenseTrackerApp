@@ -27,7 +27,7 @@ class _ExpensePageState extends State<ExpensePage> {
       body: Center(
         child: Column(
           children: [
-            Text('Hello World!'),
+            const Text('Hello World!'),
             Expanded(
               child: ExpenseList(expenses: _expenseList),
             ),
