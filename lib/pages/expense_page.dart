@@ -23,15 +23,15 @@ class _ExpensePageState extends State<ExpensePage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            children: [
-              Text('Hello World!'),
-              ExpenseList(expenses: _expenseList),
-            ],
-          ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: [
+            Text('Hello World!'),
+            Expanded(
+              child: ExpenseList(expenses: _expenseList),
+            ),
+          ],
         ),
       ),
     );

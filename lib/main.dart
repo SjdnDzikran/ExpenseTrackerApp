@@ -1,3 +1,4 @@
+import 'package:expense_tracker_app/pages/expense_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +10,9 @@ class ExpenseTracker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ExpensePage(),
+    );
   }
 }
