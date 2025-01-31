@@ -40,15 +40,17 @@ class _ExpensePageState extends State<ExpensePage> {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          children: [
-            const Text('Hello World!'),
-            Expanded(
-              child: ExpenseList(expenses: _expenseList),
-            ),
-          ],
-        ),
+      body: Column(
+        children: [
+          const Text('Hello World!'),
+          Expanded(
+            child: ExpenseList(expenses: _expenseList),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _openAddExpenseOverlay,
+        child: const Icon(Icons.add),
       ),
     );
   }
