@@ -8,18 +8,34 @@ class NewExpense extends StatefulWidget {
 }
 
 class _NewExpenseState extends State<NewExpense> {
+  var _inputTitle = '';
+  void _saveTitleInput(String inputValue) {
+    _inputTitle = inputValue;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const TextField(
+          TextField(
+            onChanged: _saveTitleInput,
             maxLength: 50,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               label: Text('Title'),
             ),
+          ),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  print(_inputTitle);
+                },
+                child: const Text('save expense'),
+              ),
+            ],
           ),
         ],
       ),
