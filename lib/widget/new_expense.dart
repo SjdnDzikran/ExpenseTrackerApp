@@ -11,6 +11,17 @@ class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _priceController = TextEditingController();
 
+  void _datePicker() {
+    final now = DateTime.now();
+    final firstDate = DateTime(now.year-1, now.month, now.day);
+    showDatePicker(
+      context: context,
+      initialDate: now,
+      firstDate: firstDate,
+      lastDate: now,
+    );
+  }
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -33,19 +44,39 @@ class _NewExpenseState extends State<NewExpense> {
               label: Text('Title'),
             ),
           ),
-          TextField(
-            controller: _priceController,
-            maxLength: 20,
-            keyboardType: TextInputType.number,
-            decoration: const InputDecoration(
-              label: Text('Price'),
-            ),
+          Row(
+            children: [
+              TextField(
+                controller: _priceController,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  label: Text('Price'),
+                ),
+              ),
+              const SizedBox(
+                width: 16,
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const Text('Selected Date'),
+                    IconButton(
+                      onPressed: _datePicker,
+                      icon: const Icon(Icons.calendar_month_rounded),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
           Row(
             children: [
               TextButton(
-                onPressed: () {},
-                child: Text('Cancel'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Cancel'),
               ),
               ElevatedButton(
                 onPressed: () {

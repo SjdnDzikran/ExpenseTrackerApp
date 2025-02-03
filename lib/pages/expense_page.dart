@@ -20,6 +20,12 @@ class _ExpensePageState extends State<ExpensePage> {
       title: 'Flutter Course',
       category: Category.work,
     ),
+    Expense(
+      date: DateTime.now(),
+      price: 10.99,
+      title: 'Flutter Course',
+      category: Category.work,
+    ),
   ];
 
   void _openAddExpenseOverlay() {
