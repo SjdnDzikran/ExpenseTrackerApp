@@ -1,15 +1,13 @@
 import 'package:expense_tracker_app/models/expense.dart';
-import 'package:expense_tracker_app/widget/expense_list.dart';
-import 'package:expense_tracker_app/widget/new_expense.dart';
+import 'package:expense_tracker_app/widget/expenses/expense_list.dart';
+import 'package:expense_tracker_app/widget/expenses/new_expense.dart';
 import 'package:flutter/material.dart';
 
 class ExpensePage extends StatefulWidget {
   const ExpensePage({super.key});
 
   @override
-  State<ExpensePage> createState() {
-    return _ExpensePageState();
-  }
+  State<ExpensePage> createState() => _ExpensePageState();
 }
 
 class _ExpensePageState extends State<ExpensePage> {
@@ -47,13 +45,16 @@ class _ExpensePageState extends State<ExpensePage> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          const Text('Hello World!'),
-          Expanded(
-            child: ExpenseList(expenses: _expenseList),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          children: [
+            const Text('Hello World!'),
+            Expanded(
+              child: ExpenseList(expenses: _expenseList),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _openAddExpenseOverlay,
