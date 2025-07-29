@@ -24,6 +24,9 @@ class ExpenseList extends StatelessWidget {
           return GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
+              mainAxisExtent: 100, // Set a more precise fixed height for each item based on content
+              mainAxisSpacing: 16, // Add spacing between rows
+              crossAxisSpacing: 16, // Add spacing between columns
             ),
             itemCount: expenses.length,
             itemBuilder: (context, index) => ExpenseItem(expenses[index]),
