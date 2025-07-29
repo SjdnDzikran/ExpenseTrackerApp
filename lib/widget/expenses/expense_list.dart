@@ -12,9 +12,24 @@ class ExpenseList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: expenses.length,
-      itemBuilder: (context, index) => ExpenseItem(expenses[index]),
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 600) {
+          return ListView.builder(
+            itemCount: expenses.length,
+            itemBuilder: (context, index) => ExpenseItem(expenses[index]),
+          );
+        } else {
+          return GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            ),
+            itemCount: expenses.length,
+            itemBuilder: (context, index) => ExpenseItem(expenses[index]),
+          );
+        }
+      },
     );
   }
 }
